@@ -1,3 +1,48 @@
-<p>
-  group-view works!
-</p>
+<div id="selector">
+  <mat-slide-toggle
+    (click)="clickHandle()">
+    {{ view ? 'List View' : 'Box View'}}
+  </mat-slide-toggle>
+</div>
+
+<div *ngIf="view == true; then listview; else boxview"></div>
+
+<ng-template #listview>
+  <mat-list role="list">
+    <cdk-virtual-scroll-viewport class="scroll" itemSize="30">
+      <mat-list-item role="listitem" 
+      *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
+      <span> {{ i + 1 }} </span>
+      {{ detail.title }}
+    </mat-list-item>
+  </cdk-virtual-scroll-viewport>
+</mat-list>
+</ng-template>
+
+<ng-template #boxview>
+<cdk-virtual-scroll-viewport class="scroll" itemSize="30">
+  <div class="container">
+    <div *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
+      <mat-card class="card">
+        <div
+        *ngIf=" detail.backdrop_path != null;
+          then image;
+          else noimage">
+        </div>
+        <ng-template #image>
+          <img mat-card-image
+            src="https://image.tmdb.org/t/p/w300{{detail.backdrop_path}}"
+            alt="{{ detail.title }}"/>
+        </ng-template>
+        <ng-template #noimage>
+          <img mat-card-image
+            src="https://www.ncry.org/wp-content/uploads/2018/12/No-Photo.png"
+            alt="{{ detail.title }}"/>
+        </ng-template>
+        <mat-card-title>
+          {{ detail.title }}
+        </mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

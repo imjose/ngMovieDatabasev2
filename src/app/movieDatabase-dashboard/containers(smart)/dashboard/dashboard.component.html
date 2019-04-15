@@ -1,3 +1,16 @@
-<p>
-  dashboard works!
-</p>
+<mat-toolbar>
+  <div fxFlex="20%"></div>
+  <nav mat-tab-nav-bar fxFlex="60%" mat-align-tabs="center">
+    <a mat-tab-link fxFlex="33%" routerLink="/toprated"> Top Rated </a>
+    <a mat-tab-link fxFlex="33%" routerLink="/popular"> Popular </a>
+    <a mat-tab-link fxFlex="33%" routerLink="/all"> All Movies </a>
+  </nav>
+  <div fxFlex="20%"></div>
+</mat-toolbar>
+<div fxLayout="row" class="main">
+  <div fxFlex="20%"></div>
+  <div fxFlex="60%" class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div fxFlex="20%"></div>
+</div>

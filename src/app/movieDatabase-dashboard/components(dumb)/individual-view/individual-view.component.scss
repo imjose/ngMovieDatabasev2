@@ -1,0 +1,14 @@
+.list-grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  button {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.bigText {
+  max-height: 16vh;
+  overflow: hidden;
+}

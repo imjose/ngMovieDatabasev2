@@ -1,3 +1,61 @@
-<p>
-  individual-view works!
-</p>
+<div fxFlex="20%"></div>
+<div fxFlex="60%">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ isMovie ? (detail$ | async)?.title : (detail$ | async)?.name }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ isMovie ? ((detail$ | async)?.release_date | date) : ((detail$ | async)?.birthday | date) }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div
+      *ngIf="
+        (detail$ | async)?.backdrop_path != null;
+        then thenBlock;
+        else elseBlock">
+    </div>
+    <ng-template #thenBlock>
+      <img
+        mat-card-image
+        src="https://image.tmdb.org/t/p/w780{{
+          (detail$ | async)?.backdrop_path}}"
+        alt="{{ (detail$ | async)?.title }}"/>
+    </ng-template>
+    <ng-template #elseBlock>
+      <img
+        mat-card-image
+        src="https://www.jkhfindia.org/files/noimageavailable.png"
+        alt="No image available"/>
+    </ng-template>
+    <mat-card-content>
+      <p class="bigText">
+        {{ isMovie ? (detail$ | async)?.overview : (detail$ | async)?.biography }}
+      </p>
+    </mat-card-content>
+    <div *ngIf="isMovie == true; then actorsGrid; else movieGrid"></div>
+    <ng-template #actorsGrid>
+      <H3>Actors.</H3>
+      <mat-card-actions class="list-grid">
+        <button
+          mat-button
+          *ngFor="let item of (complement$ | async)"
+          routerLink="/actor/{{ item.id }}">
+          {{ item.name }}
+        </button>
+      </mat-card-actions>
+    </ng-template>
+    <ng-template #movieGrid>
+      <H3>Movies.</H3>
+      <mat-card-actions class="list-grid">
+        <button
+          mat-button
+          *ngFor="let item of (complement$ | async)"
+          routerLink="/movie/{{ item.id }}">
+          {{ item.title }}
+        </button>
+      </mat-card-actions>
+    </ng-template>
+  </mat-card>
+</div>
+<div fxFlex="20%"></div>

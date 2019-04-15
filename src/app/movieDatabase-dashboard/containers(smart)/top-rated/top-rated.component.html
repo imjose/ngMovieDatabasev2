@@ -1,3 +1,11 @@
-<p>
-  top-rated works!
-</p>
+<div>
+  <div class="head"> 
+    <h1> {{ onSearch ? 'Search results' : 'Top Rated Movies' }} </h1>
+    <app-search
+      (search)=handleSearch($event)>
+    </app-search>
+  </div>
+  <app-group-view
+    [details]= "details$">
+  </app-group-view>
+</div>

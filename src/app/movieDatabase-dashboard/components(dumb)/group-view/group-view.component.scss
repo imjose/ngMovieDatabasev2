@@ -1,0 +1,41 @@
+.scroll {
+  background-color: #ffffff;
+  height: 700px;
+}
+
+#selector {
+  height: 35px;
+  padding: 5px 0 0 20px;
+  background-color: #1565c0;
+  -webkit-text-fill-color: #ffffff;
+}
+
+mat-list-item {
+  -webkit-text-fill-color: #000000;
+  span {
+    font-size: small;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #b1bfca;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  margin: 5px 5px 5px 5px;
+  & mat-card-title {
+    font-size: small;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
