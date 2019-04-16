@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ImgDialogComponent } from '../img-dialog/img-dialog.component';
 
 @Component({
   selector: 'app-individual-view',
@@ -13,7 +15,13 @@ export class IndividualViewComponent implements OnInit {
 
   image: string;
 
-  constructor() { }
+  constructor( public dialog: MatDialog ) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ImgDialogComponent, {
+      data: {image: this.image}
+    });
+  }
 
   ngOnInit() {
     this.detail$.subscribe(

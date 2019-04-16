@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // components
 import { DashboardComponent } from './containers(smart)/dashboard/dashboard.component';
@@ -29,6 +30,7 @@ import { SearchComponent } from './containers(smart)/search/search.component';
 
 // service
 import { MdLogicService } from './md-logic.service';
+import { ImgDialogComponent } from './components(dumb)/img-dialog/img-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { MdLogicService } from './md-logic.service';
     // dumb Components
     GroupViewComponent,
     IndividualViewComponent,
+    ImgDialogComponent,
   ],
   providers: [
     MdLogicService,
@@ -63,9 +66,13 @@ import { MdLogicService } from './md-logic.service';
     MatIconModule,
     MatCardModule,
     MatSlideToggleModule,
+    MatDialogModule,
   ],
   exports: [
     DashboardComponent,
-  ]
+  ],
+  entryComponents: [
+    ImgDialogComponent,
+  ],
 })
 export class MovieDashboardModule { }
