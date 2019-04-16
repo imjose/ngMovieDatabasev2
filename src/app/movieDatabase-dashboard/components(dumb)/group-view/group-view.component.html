@@ -9,7 +9,7 @@
 
 <ng-template #listview>
   <mat-list role="list">
-    <cdk-virtual-scroll-viewport class="scroll" itemSize="30">
+    <cdk-virtual-scroll-viewport class="scroll" itemSize="24">
       <mat-list-item role="listitem" 
       *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
       <span> {{ i + 1 }} </span>
@@ -20,7 +20,7 @@
 </ng-template>
 
 <ng-template #boxview>
-<cdk-virtual-scroll-viewport class="scroll" itemSize="30">
+<cdk-virtual-scroll-viewport class="scroll" itemSize="24">
   <div class="container">
     <div *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
       <mat-card class="card">

@@ -24,9 +24,7 @@ export class ActorComponent implements OnInit {
   complement$: Observable<Movie[]>;
 
   ngOnInit() {
-    // this.detail$ = this.dataService.getActor(this.Id);
-    this.dataService.getActor(this.Id)
-    .subscribe(data => console.log (data));
+    this.detail$ = this.dataService.getActor(this.Id);
     this.complement$ = this.dataService.getMoviesByActor(this.Id);
   }
 }

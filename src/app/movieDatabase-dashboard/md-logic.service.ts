@@ -40,30 +40,21 @@ export class MdLogicService {
       map(data => data['results'])
     );
   }
-  
-  // getMovieImg(id: number) {
-  //   const url = `${this.url}/movie/${id}/images?api_key=${this.key}`;
-  //   return this.http.get(`${url}`);
-  // }
-  // getActorImg(id: number) {
-  //   const url = `${this.url}/person/${id}/images?api_key=${this.key}`;
-  //   return this.http.get(`${url}`);
-  // }
 
   // GET list of movies
   getMoviesPop(id: number): Observable<any> {
     const url = `
-    ${this.url}/discover/movie?api_key=${this.key}&certification_country=US&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=${id}`;
+    ${this.url}/movie/popular?api_key=${this.key}&language=en-US&page=${id}`;
     return this.http.get(`${url}`);
   }
   getMoviesTopR(id: number): Observable<any> {
     const url = `
-    ${this.url}/discover/movie?api_key=${this.key}&certification_country=US&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=${id}`;
+    ${this.url}/movie/top_rated?api_key=${this.key}&language=en-US&page=${id}`;
     return this.http.get(`${url}`);
   }
   getMoviesAll(id: number): Observable<any> {
     const url = `
-    ${this.url}/discover/movie?api_key=${this.key}&language=en-US&sort_by=original_title.asc&page=${id}&include_adult=false&include_video=false`;
+    ${this.url}/discover/movie?api_key=${this.key}&language=en-US&sort_by=original_title.asc&page=${id}`;
     return this.http.get(`${url}`);
   }
 

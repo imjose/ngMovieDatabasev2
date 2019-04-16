@@ -38,7 +38,7 @@ export class AllComponent implements OnInit {
         this.details$ = of(this.movieData);
        });
       i++;
-    } while (i <= 5);
+    } while (i <= 20);
   }
 
   ngOnInit() {

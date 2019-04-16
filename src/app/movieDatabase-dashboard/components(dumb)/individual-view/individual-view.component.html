@@ -9,25 +9,9 @@
         {{ isMovie ? ((detail$ | async)?.release_date | date) : ((detail$ | async)?.birthday | date) }}
       </mat-card-subtitle>
     </mat-card-header>
-    <div
-      *ngIf="
-        (detail$ | async)?.backdrop_path != null;
-        then thenBlock;
-        else elseBlock">
-    </div>
-    <ng-template #thenBlock>
-      <img
-        mat-card-image
-        src="https://image.tmdb.org/t/p/w780{{
-          (detail$ | async)?.backdrop_path}}"
-        alt="{{ (detail$ | async)?.title }}"/>
-    </ng-template>
-    <ng-template #elseBlock>
-      <img
-        mat-card-image
-        src="https://www.jkhfindia.org/files/noimageavailable.png"
-        alt="No image available"/>
-    </ng-template>
+    <img
+          mat-card-image
+          src= "{{image}}"/>
     <mat-card-content>
       <p class="bigText">
         {{ isMovie ? (detail$ | async)?.overview : (detail$ | async)?.biography }}
