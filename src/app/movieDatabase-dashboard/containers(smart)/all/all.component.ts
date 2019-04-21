@@ -24,21 +24,13 @@ export class AllComponent implements OnInit {
       this.onSearch = true;
       this.details$ = this.dataService.findMovie(value);
     } else {
-      this.ngOnInit();
+      this.getMovies();
       this.onSearch = false;
     }
   }
 
   getMovies() {
-    let i = 1;
-    do {
-      this.dataService.getMoviesAll(i)
-      .subscribe( data => {
-        this.movieData = this.movieData.concat(data['results']);
-        this.details$ = of(this.movieData);
-       });
-      i++;
-    } while (i <= 20);
+    this.details$ = this.dataService.getMoviesAll();
   }
 
   ngOnInit() {

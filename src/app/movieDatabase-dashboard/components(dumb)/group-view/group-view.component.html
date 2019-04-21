@@ -9,9 +9,9 @@
 
 <ng-template #listview>
   <mat-list role="list">
-    <cdk-virtual-scroll-viewport class="scroll" itemSize="24">
+    <cdk-virtual-scroll-viewport class="scroll-list" itemSize="48">
       <mat-list-item role="listitem" 
-      *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
+      *cdkVirtualFor="let detail of details; let i = index" routerLink="/movie/{{detail.id}}">
       <span> {{ i + 1 }} </span>
       {{ detail.title }}
     </mat-list-item>
@@ -20,9 +20,9 @@
 </ng-template>
 
 <ng-template #boxview>
-<cdk-virtual-scroll-viewport class="scroll" itemSize="24">
+<cdk-virtual-scroll-viewport class="scroll-box" itemSize="24">
   <div class="container">
-    <div *cdkVirtualFor="let detail of details | async; let i = index" routerLink="/movie/{{detail.id}}">
+    <div *cdkVirtualFor="let detail of details; let i = index" routerLink="/movie/{{detail.id}}">
       <mat-card class="card">
         <div
         *ngIf=" detail.backdrop_path != null;

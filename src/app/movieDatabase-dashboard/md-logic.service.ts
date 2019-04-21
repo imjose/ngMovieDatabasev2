@@ -42,20 +42,24 @@ export class MdLogicService {
   }
 
   // GET list of movies
-  getMoviesPop(id: number): Observable<any> {
+  getMoviesPop(): Observable<Movie[]> {
     const url = `
-    ${this.url}/movie/popular?api_key=${this.key}&language=en-US&page=${id}`;
-    return this.http.get(`${url}`);
+    ${this.url}/movie/popular?api_key=${this.key}&language=en-US&page=1`;
+    return this.http.get(`${url}`).pipe(
+      map(data => data['results'])
+    );
   }
-  getMoviesTopR(id: number): Observable<any> {
-    const url = `
-    ${this.url}/movie/top_rated?api_key=${this.key}&language=en-US&page=${id}`;
-    return this.http.get(`${url}`);
+  getMoviesTopR(): Observable<Movie[]> {
+    const url = `${this.url}/movie/top_rated?api_key=${this.key}&language=en-US&page=1`;
+    return this.http.get(`${url}`).pipe(
+      map(data => data['results'])
+    );
   }
-  getMoviesAll(id: number): Observable<any> {
-    const url = `
-    ${this.url}/discover/movie?api_key=${this.key}&language=en-US&sort_by=original_title.asc&page=${id}`;
-    return this.http.get(`${url}`);
+  getMoviesAll(): Observable<Movie[]> {
+    const url = `${this.url}/discover/movie?api_key=${this.key}&language=en-US&sort_by=original_title.asc&page=1`;
+    return this.http.get(`${url}`).pipe(
+      map(data => data['results'])
+    );
   }
 
   // SEARCH

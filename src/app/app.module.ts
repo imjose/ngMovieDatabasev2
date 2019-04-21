@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import 'hammerjs';
+// import 'hammerjs';
 
 // import { AppRoutingModule } from './app-routing.module';
 import { MovieDashboardModule } from './movieDatabase-dashboard/movie-dashboard.module';

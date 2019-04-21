@@ -8,7 +8,7 @@ import { Movie } from '../../models/movie.interface';
   styleUrls: ['./group-view.component.scss']
 })
 export class GroupViewComponent implements OnInit {
-  @Input() details: Observable<Movie[]>;
+  @Input() details: Movie[];
 
   view = true;
 

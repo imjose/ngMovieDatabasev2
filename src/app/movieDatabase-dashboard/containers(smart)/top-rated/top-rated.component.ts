@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, zip } from 'rxjs';
 
 import { MdLogicService } from '../../md-logic.service';
 
 // interface
 import { Movie } from '../../models/movie.interface';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-rated',
@@ -24,21 +25,13 @@ export class TopRatedComponent implements OnInit {
       this.onSearch = true;
       this.details$ = this.dataService.findMovie(value);
     } else {
-      this.ngOnInit();
+      this.getMovies();
       this.onSearch = false;
     }
   }
 
   getMovies() {
-    let i = 1;
-    do {
-      this.dataService.getMoviesTopR(i)
-      .subscribe( data => {
-        this.movieData = this.movieData.concat(data['results']);
-        this.details$ = of(this.movieData);
-       });
-      i++;
-    } while (i <= 5);
+    this.details$ = this.dataService.getMoviesTopR();
   }
 
   ngOnInit() {
