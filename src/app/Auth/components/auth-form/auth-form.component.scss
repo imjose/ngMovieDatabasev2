@@ -1,0 +1,35 @@
+:host ::ng-deep {
+  .footer {
+    margin-top: 15px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    p {
+      flex: 1 1 auto;
+      min-width: 200px;
+    }
+    button {
+      width: -webkit-fill-available;
+    }
+  }
+  .error {
+    mat-card {
+      background-color: #3F51B5;
+      -webkit-text-fill-color: #ffffff;
+      margin-bottom: 21.5px;
+    }
+  }
+}
+
+.form {
+  max-width: 350px;
+  margin: 150px auto;
+  form {
+    display: grid;
+  }
+}
+mat-divider {
+  margin-top: 15px;
+}

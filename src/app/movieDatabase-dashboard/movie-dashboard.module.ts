@@ -34,7 +34,7 @@ import { ImgDialogComponent } from './components(dumb)/img-dialog/img-dialog.com
 
 @NgModule({
   declarations: [
-    // smart Components
+    // containers
     DashboardComponent,
     PopularComponent,
     TopRatedComponent,
@@ -42,7 +42,7 @@ import { ImgDialogComponent } from './components(dumb)/img-dialog/img-dialog.com
     ActorComponent,
     MovieComponent,
     SearchComponent,
-    // dumb Components
+    // components
     GroupViewComponent,
     IndividualViewComponent,
     ImgDialogComponent,
@@ -56,12 +56,13 @@ import { ImgDialogComponent } from './components(dumb)/img-dialog/img-dialog.com
     AppRoutingModule,
     ScrollingModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    // material
     MatToolbarModule,
     MatButtonModule,
     MatTabsModule,
     MatListModule,
-    ReactiveFormsModule,
-    FormsModule,
     MatInputModule,
     MatIconModule,
     MatCardModule,

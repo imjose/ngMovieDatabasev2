@@ -1,0 +1,14 @@
+<app-auth-form
+  (Submitted) = "login($event)">
+  <div class="name">Sign In</div>
+  <div class="button">Sign In</div>
+  <div class="footer">
+    <p>Don't Have an Account.. </p>
+    <button mat-raised-button color="accent" routerLink="/auth/register" routerLinkActive="active">Sign Up</button>
+  </div>
+  <div class="error" *ngIf="error">
+    <mat-card>
+      <mat-card-content> {{ error }} </mat-card-content>
+    </mat-card>
+  </div>
+</app-auth-form>

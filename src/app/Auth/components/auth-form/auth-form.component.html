@@ -1,0 +1,23 @@
+<mat-card class="form">
+  <mat-card-header>
+      <mat-card-title>
+        <ng-content select=".name"></ng-content>
+      </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>email</mat-label>
+      <input matInput type="text" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" id="password">
+      <mat-label>password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <ng-content select=".error"></ng-content>
+    <button mat-raised-button type="submit" [disabled]="!form.valid">
+      <ng-content select=".button"></ng-content>
+    </button>
+  </form>
+  <mat-divider></mat-divider>
+  <ng-content select=".footer"></ng-content>
+</mat-card>
